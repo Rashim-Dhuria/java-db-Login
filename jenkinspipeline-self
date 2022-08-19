@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    tools {
+        
+        maven 'maven'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository             
+				git branch: 'develop', credentialsId: 'github-cred', url: 'https://github.com/Rashim-Dhuria/java-db-Login.git'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+				
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    deploy adapters: [tomcat8(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.9.202:8080')], contextPath: 'login3', war: '**/*.war'
+                }
+            }
+        }
+    }
+}
