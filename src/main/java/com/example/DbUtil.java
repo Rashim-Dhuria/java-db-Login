@@ -10,7 +10,7 @@ public class DbUtil {
 	static Connection con=null;
 	static String driver = "com.mysql.cj.jdbc.Driver";
 	static String url = "jdbc:mysql://lwplabs-db.c2eug4e6exv5.ap-south-1.rds.amazonaws.com:3306/homeloan";
-	static String username = "master";
+	static String username = "admin";
 	static String password = "Welcome123";
 	
 	static {
