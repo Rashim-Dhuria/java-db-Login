@@ -22,7 +22,7 @@
       git:
         repo: 'https://github.com/Rashim-Dhuria/java-db-Login.git'
         dest: /var/www/html
-        version: ansible-project
+        version: ansible-project1
         force: yes
 
     - name: copy the proxypass file
