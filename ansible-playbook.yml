@@ -1,6 +1,6 @@
 ---
 - name: Play 1 - Run Roles for misl softwares,Apache & Tomcat
-  hosts: webserver
+  hosts: webservers
   become: yes
   vars:
     v_role_path: "{{ WORKSPACE }}/roles"
@@ -10,7 +10,7 @@
     - "{{ v_role_path }}/tomcat"
 
 - name: Play 2 - Custom configuration of Apache
-  hosts: webserver
+  hosts: webservers
   become: yes
   tasks:
     - name: delete the doc root dir
@@ -46,7 +46,7 @@
       service: name=httpd state=reloaded
 
 - name: Play 3 - Python Install
-  hosts: webserver
+  hosts: webservers
   become: yes
   tasks:
     - name: Install Python 3.6
@@ -63,7 +63,7 @@
       tags: python-alternatives
 
 - name: Play 4 - Python library install and copying of War file
-  hosts: webserver
+  hosts: webservers
   become: yes
   vars:
     ansible_python_interpreter: /usr/bin/python
@@ -86,7 +86,7 @@
       tags: copy-war
 
 - name: Play 5 - Start Tomcat Servers
-  hosts: webserver
+  hosts: webservers
   become: yes
   become_user: root
   tasks:
