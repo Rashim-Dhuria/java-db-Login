@@ -20,9 +20,9 @@
 
     - name: "code copy"
       git:
-        repo: 'https://github.com/mailrahulsre/learnwithprojects.com.git'
+        repo: 'https://github.com/Rashim-Dhuria/java-db-Login.git'
         dest: /var/www/html
-        version: master
+        version: ansible-project
         force: yes
 
     - name: copy the proxypass file
