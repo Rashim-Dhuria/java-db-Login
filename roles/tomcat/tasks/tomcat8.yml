@@ -1,7 +1,7 @@
 
 - name: Unarchive a tomcat tar from tomcat website
   unarchive:
-    src: https://dlcdn.apache.org/tomcat/tomcat-8/v{{ tomcatVersion }}/bin/apache-tomcat-{{ tomcatVersion }}.tar.gz
+    src: https://downloads.apache.org/tomcat/tomcat-8/v{{ tomcatVersion }}/bin/apache-tomcat-{{ tomcatVersion }}.tar.gz
     dest: /etc/
     remote_src: yes
     owner: root
